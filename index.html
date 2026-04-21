@@ -37,7 +37,7 @@
           <select id="internalSelect"
             class="w-full border rounded-lg px-3 py-2 h-12 focus:ring-2 focus:ring-indigo-400 focus:outline-none">
             <!-- <option value="IP2">IP2</option> -->
-            <option value="IP1">IP</option>
+            <option value="IP">IP</option>
           </select>
         </div>
         <div>
@@ -192,23 +192,23 @@
   lucide.createIcons();
 
   /***** CONFIG *****/
-  const CONFIG = { defaultInternal: "IP1" };
+  const CONFIG = { defaultInternal: "IP" };
   const SHEETS = {
-    IP1: { id: "1YJQqB6ts5JvxL4r9FoJWvKUPNFJnI25xPByMp4Pjdhw", name: "SINCET_B25-29_S2_IP1_RewardsSplit" }
+    IP: { id: "1YJQqB6ts5JvxL4r9FoJWvKUPNFJnI25xPByMp4Pjdhw", name: "SINCET_B25-29_S2_IP1&2_RewardsSplit" }
     // IP2: { id: "1iFdUps38F_WUenWc", name: "RewardPoints_All_2ndYears_IP2NPR" }
   };
   CONFIG.INTERNAL_MARKS_SHEETS = {
-    IP1: {
-      // "Mech": { id: "10v8xWwaJ898ozPz_eu4LTjk8bO5yh_X4YnhvowwDwk", name: "Mech" },
-      // "IT": { id: "1XUpzTlUZp4po2CKY4YIpsRB8FnQG2PDLDsY-5vFRco", name: "IT" },
+    IP: {
+      "Mech": { id: "1ox_HKUxUelCqiB1G6kcCwAUCeORBEAMw-NjwL62RP_Y", name: "Mech" },
+      "IT": { id: "1Tk0E-D0rFauNRBiLsvBgazzSGwSe32z46BxNo0VKLW8", name: "IT" },
       // "EEE": { id: "1urqNYgij0vNaBMMwLQoRjqdR93g0M2Nz0WZgee0pws", name: "EEE" },
-      // "ECE": { id: "192wDbp9clVDe_Y829bDbCl_3BsmVljslrbdeQKSqEM", name: "ECE" },
-      // "CSE": { id: "1wGj9RNlI8exqpbeoTKqjO-M4mt6mnB71nr-ZgTPXCY", name: "CSE" },
+      "ECE": { id: "1CGjmBHxJZb8ulOpfUlnHox3Y6E3_CXzR2dpUB91519s", name: "ECE" },
+      "CSE": { id: "1mPUm1t7g_ka1L5tpW86akKkQJQclJ56BQW5EQdY44Xo", name: "CSE" },
       // "Civil": { id: "1CZrO42vHfbT0Y_zr3_LdyoVsDXP-LaxHXKOpzDZpAw", name: "Civil" },
-      // "AI & ML": { id: "1btkOifSS-3tjWdRYRmkm3eedPh_njNsQ9dSJJSKtns", name: "AI & ML" },
-      // "AI & DS": { id: "1PK2CVaeLii_deZISpUsbvriCJEa74WEvu53HHfNVZ4", name: "AI & DS" }
+      "AIML": { id: "1B3qcADFrf-Ed2NwKah5MkJ5AoNyVfOVCeLSypPUfPAQ", name: "AIML" },
+      "AIDS": { id: "1-_Y1_pKXtVxMZyQLbihCAG8kxKCGs7nQZyICERMQlwA", name: "AIDS" }
     },
-    IP2: {
+    //IP2: {
       // "Mech": { id: "1aik-UNCQzxwZZqiLEXOKX03n0JxFWurwGtt6AmaTEk", name: "Mech" },
       // "IT": { id: "1l3kELPwZZKAW0i_hQEmsqlBnOc_sEiCowbluOainYY", name: "IT" },
       // "EEE": { id: "162LFdcQJROLQt-pk9Im-P-nJTsf7NpCwJhmBD-KVeM", name: "EEE" },
@@ -217,7 +217,7 @@
       // "Civil": { id: "1ZND86q2mMVCQEQku5IgxvyGuID2fEk_w6jJCOfbrpc", name: "Civil" },
       // "AI & ML": { id: "1jak5H4c3FrpqM5y3UvJhDeGwiWbMYtAARQ_Dhem1EQ", name: "AI & ML" },
       // "AI & DS": { id: "14Zog9mnzS4e4CE7b25srkmwcNEdi5WyhWoWCSqzAM4", name: "AI & DS" }
-    }
+   // }
   };
 
   const CATEGORY_CODES = ['CD','PCDP','SM','AC','RPA','SPL','OT'];
@@ -237,83 +237,75 @@
 
   // --- Hardcoded subject definitions (place after CONFIG) ---
   const deptSubjects = {
-    "AI & DS": [
-      { code: "23MA302", type: "Theory" },
-      { code: "23AD302", type: "Theory" },
-      { code: "23AD305", type: "Theory" },
-      { code: "23AD301", type: "Lab+Theory" },
-      { code: "23AD303", type: "Lab+Theory" },
-      { code: "23AD304", type: "Lab+Theory" },
-      { code: "23AD311", type: "Lab" },
-      { code: "23AD312", type: "Lab" }
-    ],
-    "CSE": [
-      { code: "23MA302", type: "Theory" },
-      { code: "23CS302", type: "Theory" },
-      { code: "23CS303", type: "Theory" },
-      { code: "23CS901", type: "Lab+Theory" },
-      { code: "23CS301", type: "Lab+Theory" },
-      { code: "23CS311", type: "Lab" },
-      { code: "23CS312", type: "Lab" }
-    ],
-    "IT": [
-      { code: "23MA302", type: "Theory" },
-      { code: "23CS302", type: "Theory" },
-      { code: "23CS303", type: "Theory" },
-      { code: "23CS901", type: "Lab+Theory" },
-      { code: "23IT301", type: "Lab+Theory" },
-      { code: "23CS311", type: "Lab" },
-      { code: "23CS312", type: "Lab" }
-    ],
-    "ECE": [
-      { code: "23MA303", type: "Theory" },
-      { code: "23AD306", type: "Theory" },
-      { code: "23EC301", type: "Theory" },
-      { code: "23EC303", type: "Theory" },
-      { code: "23GE902", type: "Theory" },
-      { code: "23EC302", type: "Lab+Theory" },
-      { code: "23AD313", type: "Lab" },
-      { code: "23EC311", type: "Lab" }
-    ],
-    "EEE": [
-      { code: "23MA901", type: "Theory" },
-      { code: "23EE301", type: "Theory" },
-      { code: "23EE302", type: "Theory" },
-      { code: "23EE303", type: "Theory" },
-      { code: "23EE304", type: "Theory" },
-      { code: "23CS304", type: "Lab+Theory" },
-      { code: "23EE311", type: "Lab" },
-      { code: "23EE312", type: "Lab" }
-    ],
-    "MECH": [
-      { code: "23MA301", type: "Theory" },
-      { code: "23ME301", type: "Theory" },
-      { code: "23ME303", type: "Theory" },
-      { code: "23GE902", type: "Theory" },
-      { code: "23ME302", type: "Lab+Theory" },
-      { code: "23ME311", type: "Lab" }
-    ],
-    "AI & ML": [
-      { code: "23MA302", type: "Theory" },
-      { code: "23CS302", type: "Theory" },
-      { code: "23CS303", type: "Theory" },
-      { code: "23CS901", type: "Lab+Theory" },
-      { code: "23CS301", type: "Lab+Theory" },
-      { code: "23CS311", type: "Lab" },
-      { code: "23CS312", type: "Lab" }
-    ],
-    "Civil": [
-      { code: "23MA301", type: "Theory" },
-      { code: "23CE301", type: "Theory" },
-      { code: "23CE302", type: "Theory" },
-      { code: "23CE303", type: "Theory" },
-      { code: "23CE304", type: "Theory" },
-      { code: "23CE311", type: "Lab" },
-      { code: "23CE312", type: "Lab" },
-      { code: "23CE313", type: "Lab" }
-    ]
-  };
-  const maxMap = { "Theory": 8, "Lab+Theory": 10, "Lab": 10 };
+
+  "CSE": [
+    { code: "MA25C02", type: "Theory" },
+    { code: "EE25C01", type: "Theory" },
+    { code: "CS25C06", type: "Theory" },
+    { code: "UC25H02", type: "Theory" },
+    { code: "PH25C03", type: "Theory" },
+    { code: "CS25C07", type: "Lab+Theory" },
+    { code: "EN25C02", type: "Lab+Theory" },
+    { code: "ME25C05", type: "Lab" }
+  ],
+
+  "IT": [
+    { code: "MA25C02", type: "Theory" },
+    { code: "EE25C01", type: "Theory" },
+    { code: "UC25H02", type: "Theory" },
+    { code: "PH25C03", type: "Theory" },
+    { code: "IT25201", type: "Lab+Theory" },
+    { code: "IT25202", type: "Lab+Theory" },
+    { code: "EN25C02", type: "Lab+Theory" },
+    { code: "ME25C05", type: "Lab" }
+  ],
+
+  "AIDS": [
+    { code: "MA25C02", type: "Theory" },
+    { code: "EE25C01", type: "Theory" },
+    { code: "CS25C06", type: "Theory" },
+    { code: "UC25H02", type: "Theory" },
+    { code: "PH25C03", type: "Theory" },
+    { code: "AD25201", type: "Lab+Theory" },
+    { code: "EN25C02", type: "Lab+Theory" },
+    { code: "ME25C05", type: "Lab" }
+  ],
+
+  "AIML": [
+    { code: "MA25C02", type: "Theory" },
+    { code: "EE25C01", type: "Theory" },
+    { code: "CS25C06", type: "Theory" },
+    { code: "UC25H02", type: "Theory" },
+    { code: "PH25C03", type: "Theory" },
+    { code: "CS25C07", type: "Lab+Theory" },
+    { code: "EN25C02", type: "Lab+Theory" },
+    { code: "ME25C05", type: "Lab" }
+  ],
+
+  "ECE": [
+    { code: "MA25C02", type: "Theory" },
+    { code: "UC25H02", type: "Theory" },
+    { code: "EN25C02", type: "Lab+Theory" },
+    { code: "EC25C01", type: "Theory" },
+    { code: "EC25C02", type: "Theory" },
+    { code: "CS25C05", type: "Lab+Theory" },
+    { code: "ME25C05", type: "Lab" },
+    { code: "EC25C03", type: "Lab" }
+  ],
+
+  "MECH": [
+    { code: "MA25C02", type: "Theory" },
+    { code: "EE25C01", type: "Theory" },
+    { code: "ME25C02", type: "Theory" },
+    { code: "PH25C05", type: "Theory" },
+    { code: "CY25C03", type: "Theory" },
+    { code: "UC25H02", type: "Theory" },
+    { code: "ME25C05", type: "Lab" },
+    { code: "EN25C02", type: "Lab+Theory" }
+  ]
+
+};
+  const maxMap = { "Theory": 16, "Lab+Theory": 16, "Lab": 16 };
 
   let activeInternal = CONFIG.defaultInternal || "IP1";
   let students = [], headers = [], headerMap = {};
@@ -872,7 +864,7 @@ async function loadInternalMarksForStudent(internalKey, department, registerNo, 
   }
 
   internalSelect.addEventListener("change", async function(){
-    activeInternal = internalSelect.value || "IP1";
+    activeInternal = internalSelect.value || "IP";
     setFiltersEnabled(false);
     const ok = await loadSheet(activeInternal);
     setFiltersEnabled(ok);
@@ -891,8 +883,8 @@ async function loadInternalMarksForStudent(internalKey, department, registerNo, 
   nextPageBtn.addEventListener("click", function(){ const totalPages = Math.max(1, Math.ceil(currentActivityRows.length / pageSize)); if (currentPage < totalPages) { currentPage++; renderActivityTable(currentActivityRows); }});
 
   (async function init(){
-    internalSelect.value = CONFIG.defaultInternal || "IP1";
-    activeInternal = internalSelect.value || "IP1";
+    internalSelect.value = CONFIG.defaultInternal || "IP";
+    activeInternal = internalSelect.value || "IP";
     pageSize = Number(pageSizeSelect.value) || 10;
     const ok = await loadSheet(activeInternal);
     setFiltersEnabled(ok);
